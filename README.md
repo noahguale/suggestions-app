@@ -32,6 +32,7 @@
     ```
 3. Run Flask
 
+<<<<<<< HEAD
     ```
     export FLASK_APP=suggestions
     ```
@@ -39,6 +40,9 @@
     flask run
     ```
 # Categories
+=======
+## Categories
+>>>>>>> 5cad12d91011332cd3a4407acd10e9241c810399
 ## Show all categories
 
 **URL** : `/api/categories/all`
@@ -137,7 +141,7 @@
 
 `Deleted Category - {category.title}`
 
-# Suggestions
+## Suggestions
 
 ## Show all suggestions
 
@@ -281,7 +285,7 @@
 
 `Deleted Suggestion #{suggestion.id} and {len(suggestion.comments)} comments`
 
-# Comments
+## Comments
 ## Show all comments
 
 **URL** : `/api/comments/all`
