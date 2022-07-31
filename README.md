@@ -21,7 +21,7 @@
     flask run
     ```
 
-# Categories
+## Categories
 ## Show all categories
 
 **URL** : `/api/categories/all`
@@ -120,7 +120,7 @@
 
 `Deleted Category - {category.title}`
 
-# Suggestions
+## Suggestions
 
 ## Show all suggestions
 
@@ -264,7 +264,7 @@
 
 `Deleted Suggestion #{suggestion.id} and {len(suggestion.comments)} comments`
 
-# Comments
+## Comments
 ## Show all comments
 
 **URL** : `/api/comments/all`
