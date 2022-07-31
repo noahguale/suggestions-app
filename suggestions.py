@@ -5,6 +5,11 @@ from flask import request, jsonify
 from werkzeug.exceptions import HTTPException
 import json
 
+'''
+Authentication is needed to verify to person running the command. Right now aynone can edit/delete data, 
+so auth would be needed to confirm the user.
+'''
+
 @app.route('/api/categories/all')
 def index():
     categories = Category.query.all()
