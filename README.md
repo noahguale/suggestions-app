@@ -3,24 +3,41 @@
 
 ## Installing Suggestions App
 
-1. Open a terminal in the directory where you downloaded the repo and download all libraries
+
+1. Open a terminal in the directory where you downloaded the repo and activate the Python enviroment
+    ```
+    python3 -m venv .venv
+    ```
+    ```
+    source .venv/bin/activate
+    ```
+2. Install Python libraries
 
     ```
    pip3 install -r requirements.txt
     ```
-
-2. Run the command below to initialize and run the app
+2. Initialize settings and setup database
+    ```
+    export FLASK_APP=suggestions
+    ```
+    ```
+    flask shell
+    ```
+    ```
+    from settings import db
+    db.create_all()
+    ```
+    ```
+    exit()
+    ```
+3. Run Flask
 
     ```
     export FLASK_APP=suggestions
-    export FLASK_ENV=development
-    flask shell
-    from settings import db
-    db.create_all()
-    exit()
+    ```
+    ```
     flask run
     ```
-
 # Categories
 ## Show all categories
 

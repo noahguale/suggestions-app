@@ -3,7 +3,6 @@ from settings import db, app
 
 from flask import request, jsonify
 from werkzeug.exceptions import HTTPException
-from multiprocessing import Value
 import json
 
 @app.route('/api/categories/all')
@@ -27,7 +26,8 @@ def delete_category(category_id):
     category = Category.query.filter_by(id=category_id).first_or_404()
     db.session.delete(category)
     db.session.commit()
-    return f'Deleted Category - {category.title}'
+    return {"message":f'Deleted Category - {category.title}'}
+
 
 @app.route('/api/categories/<id>')
 def get_category(id):
@@ -69,8 +69,8 @@ def create_suggestion():
     return {'id':suggestion.id}
 
 @app.route('/api/suggestions/<suggestion_id>/edit/',methods=['PUT'])
-def edit_suggestion(id):    
-    suggestion = Suggestion.query.get_or_404(id)
+def edit_suggestion(suggestion_id):    
+    suggestion = Suggestion.query.get_or_404(suggestion_id)
     suggestion.body = request.json['body']
     db.session.commit()
     return {'id':suggestion.id}
@@ -80,7 +80,7 @@ def delete_suggestion(suggestion_id):
     suggestion = Suggestion.query.filter_by(id=suggestion_id).first_or_404()
     db.session.delete(suggestion)
     db.session.commit()
-    return f'Deleted Suggestion #{suggestion.id} and {len(suggestion.comments)} comments'
+    return {"message":f'Deleted Suggestion #{suggestion.id} and {len(suggestion.comments)} comments'}
 
 @app.route('/api/suggestions/<suggestion_id>/vote',methods=['PUT'])
 def vote_suggestion(suggestion_id):    
@@ -90,7 +90,6 @@ def vote_suggestion(suggestion_id):
     elif request.json['vote'] == 'down':
         suggestion.downvotes += 1
     db.session.commit()
-    # return jsonify(f'Suggestion #{suggestion.id}:  {len(suggestion.comments)} comments')
     return {"votes":{"upvotes":suggestion.upvotes,"downvotes":suggestion.downvotes}}
 
 @app.route('/api/comments/all')
