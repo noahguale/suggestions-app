@@ -32,17 +32,13 @@
     ```
 3. Run Flask
 
-<<<<<<< HEAD
     ```
     export FLASK_APP=suggestions
     ```
     ```
     flask run
     ```
-# Categories
-=======
 ## Categories
->>>>>>> 5cad12d91011332cd3a4407acd10e9241c810399
 ## Show all categories
 
 **URL** : `/api/categories/all`
