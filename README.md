@@ -1,5 +1,4 @@
-# Suggestions App - Whop
-
+# Suggestions App
 
 ## Installing Suggestions App
 
